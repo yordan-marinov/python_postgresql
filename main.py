@@ -25,14 +25,13 @@ def main():
         # Will commit and close the connection
         with psycopg2.connect(**db_config_params) as connection:
             with connection.cursor() as cursor:
-
                 # Using the sql statements to modify the tables
                 cursor.execute('CREATE TABLE If NOT EXISTS student(id SERIAL PRIMARY KEY, name VARCHAR);')
                 # cursor.execute("INSERT INTO student(name) VALUES (%s);", ('Jack Smith',))
                 # connection.commit()
                 cursor.execute('SELECT * FROM student;')
                 print(*cursor.fetchall(), sep='\n')
-                
+
     except (Exception, psycopg2.DatabaseError) as error:
         print(error)
 
