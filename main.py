@@ -32,6 +32,7 @@ def main():
                 # connection.commit()
                 cursor.execute('SELECT * FROM student;')
                 print(*cursor.fetchall(), sep='\n')
+                
     except (Exception, psycopg2.DatabaseError) as error:
         print(error)
 
