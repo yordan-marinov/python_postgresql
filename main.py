@@ -22,7 +22,7 @@ def main():
     print(f'Connecting to {db_config_params["database"]} database.')
 
     try:
-        # Context manager will commit and close the connection
+        # Will commit and close the connection
         with psycopg2.connect(**db_config_params) as connection:
             with connection.cursor() as cursor:
 
